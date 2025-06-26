@@ -2,7 +2,7 @@
 
 ## Automated Weekly Sales Workflow & Forecasting using Power Automate, Power BI, and Excel 
 
-![Waggle Lapdog and Lapcat Logos](asset/Images/waggle_logo_yellow.png)
+![Automated Sales Reprt](Asset/Images/Cover_Page.png)
 
 # Table of Content
 - [Project Title](#project-title)
@@ -126,6 +126,8 @@ Collaborated with Stakeholders to define the reporting cadence, file structure, 
   - Sends an email notification to stakeholders tat a new file has been processed
 - Power BI is connected to the Historical_Sales folder using the SharePoint folder connector
 - This enables automated appending of weekly data and dashboard refresh
+
+![Dataflow Process and Report](Asset/Images/Dataflow_Process_and_Report.png)
 
 #### *Data Exploration & Profiling*
 Performed integrity checks and missing value analysis using Power Query. Identified outliers and ensured consistency.
@@ -589,7 +591,7 @@ Incorperated stakeholder feedback, Adjusted alerts, added new KPIs, improved vis
 # Detailed Insights and Recommendation.
 ## Sales Report Dashboard & Drill-Through Page
 
-
+![Sales Report Dasboard](Asset/Images/Sales_Report_Dashboard.gif)
 
 # P&L Statement and Financial Forecasting Model
 
