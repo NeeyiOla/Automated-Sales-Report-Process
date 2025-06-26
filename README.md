@@ -573,6 +573,9 @@ RETURN
 
 
 #### *Dashboard Design & Visualisation*
+
+![Mokkup Design](Asset/Images/Mokkup_Design.png)
+
 - KPI cards, Bar charts, Line trends
 - Drill-through from Product > Region > Unit Sold Monthly Trend
 - Tooltip page
