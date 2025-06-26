@@ -111,12 +111,12 @@ Agile developmenmt with bi-weekly sprints, stakeholder demos, and flow testing.
 
 ### Development 
 
-##### *Project Planning & and Requirement Gathering* 
+#### *Project Planning & and Requirement Gathering* 
 Collaborated with Stakeholders to define the reporting cadence, file structure, and KPI expectations.
 
 
 
-##### *Automation Workflow Using Power Automate, OneDrive and SharePoint*
+#### *Automation Workflow Using Power Automate, OneDrive and SharePoint*
 
 - Sales team Uploads weekly Excel (more like every 7days sales) to: /GitHub/ Power Automate/Weekly Sale Data Upload (OneDrive for Business)
 - Power Automate detects the upload and:
@@ -127,40 +127,467 @@ Collaborated with Stakeholders to define the reporting cadence, file structure, 
 - Power BI is connected to the Historical_Sales folder using the SharePoint folder connector
 - This enables automated appending of weekly data and dashboard refresh
 
-##### *Data Exploration & Profiling*
+#### *Data Exploration & Profiling*
 Performed integrity checks and missing value analysis using Power Query. Identified outliers and ensured consistency.
 
-##### *ETL Process Using Power Query and Data Modeling* 
+#### *ETL Process Using Power Query and Data Modeling* 
 - Used the Folder connector to combine Excel files
 - Cleaned and transformed fields: Dates, Costs, Revenue
 - Related fact and dimensiontables for robust analysis
 
-##### *Measures Development Using DAX*
+#### *Measures Development Using DAX*
 Created measures: 
 - Total Revenue, Total COGS, Total Cost
 - Gross Profit, Profit Margin %, Average Gross profit
 - COGS MOM %, COGS MoM Indicator (Color-coded)
 - Total Unit Sold, Cost per Unit
 
-##### *Dashboard Design & Visualisation*
+**KPIs DAX MEASURES**  
+```Dax
+Average Gross Profit = AVERAGE(Sales[Goss Profit])
+```
+
+```Dax
+Gross Profit = [Total Revenue] - [Total Cost]
+```
+
+```Dax
+Profit Margin % = DIVIDE([Gross Profit], [Total Revenue], 0)
+```
+
+```Dax
+Total COGS = SUM(Sales[Unit Cost])
+```
+
+```Dax
+Total Cost = 
+SUMX('Sales',
+ 'Sales'[Unit Cost] * 'Sales'[Units Sold] + 'Sales'[Admin Cost] + 'Sales'[Marketing Cost])
+```
+
+```Dax
+Total Revenue = SUM('Sales'[Revenue])
+```
+
+```Dax
+Total Unit Sold = SUM('Sales'[Units Sold])
+```
+
+
+**MONTH OVER MONTH DAX MEASURES**  
+
+```DAX
+COGS MoM % = 
+VAR SelectedMonth = MAX('Date'[Month])
+VAR SelectedYear = MAX('Date'[Year])
+
+VAR PreviousMnth = IF(SelectedMonth = 1, 12, SelectedMonth - 1)
+VAR PreviousYr = IF(SelectedMonth = 1, SelectedYear - 1, SelectedYear)
+
+VAR CurrentCOGS =
+    CALCULATE(
+        [Total COGS],
+        'Date'[Month] = SelectedMonth,
+        'Date'[Year] = SelectedYear
+    )
+
+VAR PreviousCOGS =
+    CALCULATE(
+        [Total COGS],
+        'Date'[Month] = PreviousMnth,
+        'Date'[Year] = PreviousYr,
+        REMOVEFILTERS('Date')
+    )
+
+RETURN
+    IF(
+        PreviousCOGS <> 0,
+        DIVIDE(CurrentCOGS - PreviousCOGS, PreviousCOGS),
+        BLANK()
+    )
+```
+
+```DAX
+COGS MoM Indicator = 
+VAR Change = [COGS MoM %]
+VAR Arrow = 
+    SWITCH(
+        TRUE(),
+        Change > 0, "▲",
+        Change < 0, "▼",
+        BLANK()
+    )
+VAR FormattedValue = FORMAT(ABS(Change), "0.0%")
+RETURN
+    IF(NOT ISBLANK(Change), Arrow & " " & FormattedValue)
+
+```
+
+```DAX
+COGS MoM Δ = 
+VAR SelectedMonth = MAX('Date'[Month])
+VAR SelectedYear = MAX('Date'[Year])
+
+VAR PreviousMnth = IF(SelectedMonth = 1, 12, SelectedMonth - 1)
+VAR PreviousYr = IF(SelectedMonth = 1, SelectedYear - 1, SelectedYear)
+
+VAR CurrentCOGS =
+    CALCULATE(
+        [Total COGS],
+        'Date'[Month] = SelectedMonth,
+        'Date'[Year] = SelectedYear
+    )
+
+VAR PreviousCOGS =
+    CALCULATE(
+        [Total COGS],
+        'Date'[Month] = PreviousMnth,
+        'Date'[Year] = PreviousYr,
+        REMOVEFILTERS('Date')
+    )
+
+RETURN
+    IF(
+        NOT ISBLANK(PreviousCOGS),
+        CurrentCOGS - PreviousCOGS
+    )
+```
+
+```DAX
+Gross Profit MoM % = 
+VAR SelectedMonth = MAX('Date'[Month])
+VAR SelectedYear = MAX('Date'[Year])
+
+VAR PreviousMnth = IF(SelectedMonth = 1, 12, SelectedMonth - 1)
+VAR PreviousYr = IF(SelectedMonth = 1, SelectedYear - 1, SelectedYear)
+
+VAR CurrentGrossProfit =
+    CALCULATE(
+        [Gross Profit],
+        'Date'[Month] = SelectedMonth,
+        'Date'[Year] = SelectedYear
+    )
+
+VAR PreviousGrossProfit =
+    CALCULATE(
+        [Gross Profit],
+        'Date'[Month] = PreviousMnth,
+        'Date'[Year] = PreviousYr,
+        REMOVEFILTERS('Date')
+    )
+
+RETURN
+    IF(
+        PreviousGrossProfit <> 0,
+        DIVIDE(CurrentGrossProfit - PreviousGrossProfit, PreviousGrossProfit),
+        BLANK()
+    )
+```
+
+```DAX
+Gross Profit MoM Indicator = 
+VAR Change = [Gross Profit MoM %]
+VAR Arrow = 
+    SWITCH(
+        TRUE(),
+        Change > 0, "▲",
+        Change < 0, "▼",
+        BLANK()
+    )
+VAR FormattedValue = FORMAT(ABS(Change), "0.0%")
+RETURN
+    IF(NOT ISBLANK(Change), Arrow & " " & FormattedValue)
+
+```
+
+```DAX
+Gross Profit MoM Δ = 
+VAR SelectedMonth = MAX('Date'[Month])
+VAR SelectedYear = MAX('Date'[Year])
+
+VAR PreviousMnth = IF(SelectedMonth = 1, 12, SelectedMonth - 1)
+VAR PreviousYr = IF(SelectedMonth = 1, SelectedYear - 1, SelectedYear)
+
+VAR CurrentGP =
+    CALCULATE(
+        [Gross Profit],
+        'Date'[Month] = SelectedMonth,
+        'Date'[Year] = SelectedYear
+    )
+
+VAR PreviousGP =
+    CALCULATE(
+        [Gross Profit],
+        'Date'[Month] = PreviousMnth,
+        'Date'[Year] = PreviousYr,
+        REMOVEFILTERS('Date')
+    )
+
+RETURN
+    IF(
+        NOT ISBLANK(PreviousGP),
+        CurrentGP - PreviousGP
+    )
+```
+
+```DAX
+Profit Margin MoM % = 
+VAR SelectedMonth = MAX('Date'[Month])
+VAR SelectedYear = MAX('Date'[Year])
+
+VAR PreviousMnth = IF(SelectedMonth = 1, 12, SelectedMonth - 1)
+VAR PreviousYr = IF(SelectedMonth = 1, SelectedYear - 1, SelectedYear)
+
+VAR CurrentMargin =
+    CALCULATE(
+        [Profit Margin %],
+        'Date'[Month] = SelectedMonth,
+        'Date'[Year] = SelectedYear
+    )
+
+VAR PreviousMargin =
+    CALCULATE(
+        [Profit Margin %],
+        'Date'[Month] = PreviousMnth,
+        'Date'[Year] = PreviousYr,
+        REMOVEFILTERS('Date')
+    )
+
+RETURN
+    IF(
+        NOT(ISBLANK(PreviousMargin)),
+        CurrentMargin - PreviousMargin,
+        BLANK()
+    )
+```
+
+```DAX
+Profit Margin MoM Indicator = 
+VAR Change = [Profit Margin MoM %]
+VAR Arrow = 
+    SWITCH(
+        TRUE(),
+        Change > 0, "▲",
+        Change < 0, "▼",
+        BLANK()
+    )
+VAR FormattedValue = FORMAT(ABS(Change), "0.0%")
+RETURN
+    IF(NOT ISBLANK(Change), Arrow & " " & FormattedValue)
+```
+
+```DAX
+Revenue MoM %%% = 
+VAR SelectedMonth = MAX('Date'[Month])
+VAR SelectedYear = MAX('Date'[Year])
+
+VAR PreviousMnth =
+    IF(SelectedMonth = 1, 12, SelectedMonth - 1)
+
+VAR PreviousYr =
+    IF(SelectedMonth = 1, SelectedYear - 1, SelectedYear)
+
+VAR RevenueCurrent =
+    CALCULATE(
+        [Total Revenue],
+        'Date'[Month] = SelectedMonth,
+        'Date'[Year] = SelectedYear
+    )
+
+VAR RevenuePrevious =
+    CALCULATE(
+        [Total Revenue],
+        'Date'[Month] = PreviousMnth,
+        'Date'[Year] = PreviousYr,
+        REMOVEFILTERS('Date')  // 👈 ensures previous month can be evaluated even when filtered
+    )
+
+RETURN
+    IF(
+        RevenuePrevious <> 0,
+        DIVIDE(RevenueCurrent - RevenuePrevious, RevenuePrevious),
+        BLANK()
+    )
+```
+
+```DAX
+Revenue MoM Indicator = 
+VAR Change = [Revenue MoM %%%]
+VAR Arrow = 
+    SWITCH(
+        TRUE(),
+        Change > 0, "▲",
+        Change < 0, "▼",
+        BLANK()
+    )
+
+VAR FormattedValue = FORMAT(ABS(Change), "0.0%")
+
+RETURN
+    IF(
+        NOT ISBLANK(Change),
+        Arrow & " " & FormattedValue
+    )
+```
+
+```DAX
+Revenue MoM Δ = 
+VAR SelectedMonth = MAX('Date'[Month])
+VAR SelectedYear = MAX('Date'[Year])
+
+VAR PreviousMnth = IF(SelectedMonth = 1, 12, SelectedMonth - 1)
+VAR PreviousYr = IF(SelectedMonth = 1, SelectedYear - 1, SelectedYear)
+
+VAR CurrentRevenue =
+    CALCULATE(
+        [Total Revenue],
+        'Date'[Month] = SelectedMonth,
+        'Date'[Year] = SelectedYear
+    )
+
+VAR PreviousRevenue =
+    CALCULATE(
+        [Total Revenue],
+        'Date'[Month] = PreviousMnth,
+        'Date'[Year] = PreviousYr,
+        REMOVEFILTERS('Date')
+    )
+
+RETURN
+    IF(
+        NOT ISBLANK(PreviousRevenue),
+        CurrentRevenue - PreviousRevenue
+    )
+```
+
+```DAX
+Total Cost MoM % = 
+VAR SelectedMonth = MAX('Date'[Month])
+VAR SelectedYear = MAX('Date'[Year])
+
+VAR PreviousMnth = IF(SelectedMonth = 1, 12, SelectedMonth - 1)
+VAR PreviousYr = IF(SelectedMonth = 1, SelectedYear - 1, SelectedYear)
+
+VAR CurrentCost =
+    CALCULATE(
+        [Total Cost],
+        'Date'[Month] = SelectedMonth,
+        'Date'[Year] = SelectedYear
+    )
+
+VAR PreviousCost =
+    CALCULATE(
+        [Total Cost],
+        'Date'[Month] = PreviousMnth,
+        'Date'[Year] = PreviousYr,
+        REMOVEFILTERS('Date')
+    )
+
+RETURN
+    IF(
+        PreviousCost <> 0,
+        DIVIDE(CurrentCost - PreviousCost, PreviousCost),
+        BLANK()
+    )
+```
+
+```DAX
+Total Cost MoM Indicator = 
+VAR Change = [Total Cost MoM %]
+VAR Arrow = 
+    SWITCH(
+        TRUE(),
+        Change > 0, "▲",
+        Change < 0, "▼",
+        BLANK()
+    )
+VAR FormattedValue = FORMAT(ABS(Change), "0.0%")
+RETURN
+    IF(NOT ISBLANK(Change), Arrow & " " & FormattedValue)
+```
+
+```DAX
+Total Cost MoM Δ = 
+VAR SelectedMonth = MAX('Date'[Month])
+VAR SelectedYear = MAX('Date'[Year])
+
+VAR PreviousMnth = IF(SelectedMonth = 1, 12, SelectedMonth - 1)
+VAR PreviousYr = IF(SelectedMonth = 1, SelectedYear - 1, SelectedYear)
+
+VAR CurrentCost =
+    CALCULATE(
+        [Total Cost],
+        'Date'[Month] = SelectedMonth,
+        'Date'[Year] = SelectedYear
+    )
+
+VAR PreviousCost =
+    CALCULATE(
+        [Total Cost],
+        'Date'[Month] = PreviousMnth,
+        'Date'[Year] = PreviousYr,
+        REMOVEFILTERS('Date')
+    )
+
+RETURN
+    IF(
+        NOT ISBLANK(PreviousCost),
+        CurrentCost - PreviousCost
+    )
+```
+
+```DAX
+Unit Sold MoM % = 
+VAR SelectedMonth = MAX('Date'[Month])
+VAR SelectedYear = MAX('Date'[Year])
+
+VAR PreviousMnth = IF(SelectedMonth = 1, 12, SelectedMonth - 1)
+VAR PreviousYr = IF(SelectedMonth = 1, SelectedYear - 1, SelectedYear)
+
+VAR CurrentCOGS =
+    CALCULATE(
+        [Total Unit Sold],
+        'Date'[Month] = SelectedMonth,
+        'Date'[Year] = SelectedYear
+    )
+
+VAR PreviousCOGS =
+    CALCULATE(
+        [Total Unit Sold],
+        'Date'[Month] = PreviousMnth,
+        'Date'[Year] = PreviousYr,
+        REMOVEFILTERS('Date')
+    )
+
+RETURN
+    IF(
+        PreviousCOGS <> 0,
+        DIVIDE(CurrentCOGS - PreviousCOGS, PreviousCOGS),
+        BLANK()
+    )
+```
+
+
+#### *Dashboard Design & Visualisation*
 - KPI cards, Bar charts, Line trends
 - Drill-through from Product > Region > Unit Sold Monthly Trend
 - Tooltip page
 - Profitability scorecard and alert centre
 
-##### *Publishing and Collaboration*
+#### *Publishing and Collaboration*
 - Publish reports to Power BI Service
 - Shared with stakeholders via Power BI apps and automated alerts.
 - Collaboration on Outlook email, Microsoft Team
 
-##### *Documentation & Version Control
+#### *Documentation & Version Control*
 Used GitHub for project files, Power BI versions, and flow documentation.  
 Markdown for README.
 
-##### *Review & Iteration*
+#### *Review & Iteration*
 Incorperated stakeholder feedback, Adjusted alerts, added new KPIs, improved visuals and usability.
 
 # Detailed Insights and Recommendation.
+## Sales Report Dashboard & Drill-Through Page
 
 
 
