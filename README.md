@@ -137,6 +137,8 @@ Performed integrity checks and missing value analysis using Power Query. Identif
 - Cleaned and transformed fields: Dates, Costs, Revenue
 - Related fact and dimensiontables for robust analysis
 
+![Data modelling image](Asset/Images/Data_modelling.png)
+
 #### *Measures Development Using DAX*
 Created measures: 
 - Total Revenue, Total COGS, Total Cost
