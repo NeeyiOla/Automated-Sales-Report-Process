@@ -155,7 +155,7 @@ Collaborated with Stakeholders to define the reporting cadence, file structure, 
 ![Dataflow Process and Report](Asset/Images/Dataflow_Process_and_Report.png)
 
 #### *Data Exploration & Profiling*
-Performed integrity checks and missing value analysis using Power Query. Identified outliers and ensured consistency.
+Performed integrity checks and missing value analysis using Power Query. Identified outliers and ensured consistency. This was done by heading to the VIEW ribbon in power query which i then turn on column profile and quality in the VIEW tab, this allow me to check the integrity, missing value, error or outliers in the dataset.
 
 #### *ETL Process Using Power Query and Data Modeling* 
 - Used the Folder connector to combine Excel files
@@ -597,19 +597,40 @@ RETURN
 ```
 
 
-#### *Dashboard Design & Visualisation*
+#### *Dashboard Design & Visualisation Requirements*
+
+**Visualisation Requirements**  
+
+- Created one Dashbaord page (Sale Overview Dashboard) that can consist of below functionalities;
+  - KPI cards, Bar charts, Line trends for (regions monthly trend)
+  - Drill-through from Product > Region > Unit Sold Monthly Trend
+  - Tooltip page that breakdown unit sold for each product.
+  - Profitability scorecard that show MoM change and indicator for revenue, COGS, Gross Profit and Total Cost.
+- Created a drill-through page that help end users to drill-through product unit sold by monthly trends accross each regions.
+- Incorporated at least one slicer of any slicer type
+
+
+**DASHBOARD DESIGN (MOKKUP)**
+
+To ensure the Power BI report successfully met stakeholder expectations, an initial step involded drafting a rough visual layout for each dashboard. This approach allowed stakeholders to review and provide feedback early in the design process, ensuring alignment with their requirements. To support this initiative, I utilised MOKKUP.AI - a platform that enables BI developers to design and protoype dashboard visuals effectively. The images below represent the intended visual outcomes for the final Sale overview report.
 
 ![Mokkup Design](Asset/Images/Mokkup_Design.png)
 
-- KPI cards, Bar charts, Line trends
-- Drill-through from Product > Region > Unit Sold Monthly Trend
-- Tooltip page
-- Profitability scorecard and alert centre
+**Visualisation Requirements**  
+
+- Created one Dashbaord page (Sale Overview Dashboard) that can consist of below functionalities;
+  - KPI cards, Bar charts, Line trends for (regions monthly trend)
+  - Drill-through from Product > Region > Unit Sold Monthly Trend
+  - Tooltip page that breakdown unit sold for each product.
+  - Profitability scorecard that show MoM change and indicator for revenue, COGS, Gross Profit and Total Cost.
+- Created a drill-through page that help end users to drill-through product unit sold by monthly trends accross each regions.
+- Incorporated at least one slicer of any slicer type
+
 
 #### *Publishing and Collaboration*
 - Publish reports to Power BI Service
-- Shared with stakeholders via Power BI apps and automated alerts.
-- Collaboration on Outlook email, Microsoft Team
+- Shared with stakeholders via Power BI apps, and automated alerts.
+- Collaboration on Outlook email and Microsoft Team
 
 #### *Documentation & Version Control*
 Used GitHub for project files, Power BI versions, and flow documentation.  
@@ -619,11 +640,136 @@ Markdown for README.
 Incorperated stakeholder feedback, Adjusted alerts, added new KPIs, improved visuals and usability.
 
 # Detailed Insights and Recommendation.
-## Sales Report Dashboard & Drill-Through Page
+## Sales Overview Dashboard & Drill-Through Page
 
 ![Sales Report Dasboard](Asset/Images/Sales_Report_Dashboard.gif)
 
-# P&L Statement and Financial Forecasting Model
+**Headline KPIs**  
+Total Revenue  
+- 3M
+- MoM Change: ▼ 8.8%
+- Value Change: -49.53K
+
+Sum of COGS
+- 2M
+- MoM Change: ▼ 8.3%
+- Value Change: -4.83K
+
+Total Cost  
+- 2M
+- MoM Change: ▼ 9.06%
+- Value Change: -28.33K
+
+Gross Profit  
+- 1M
+- MoM Change: ▼ 8.7%
+- Value Change: -21.20K
+
+**Insight:**  
+While the business generated strong revenue overall, a consistent MoM decline across revenue, costs, and profit suggest seasonal contracion or demand softening. The near-equal drop COGS and Revenue indicates stable margins, but stakeholder attention is needed on sustaining volume through pricing, promotions or channel strategy.
+
+**MONTHLY TREND OF REVENUE ACROSS REGIONS (Jan - Jun)**  
+
+- **East (Grey):**
+  - Has the largest share consistently from January to March.
+  - Start declining in April, Continues to drop into June.
+
+- **West (Green):**
+  - Maitains a steady middle level share throughout
+  - Peak slighly in April and May, but does not overtake East early on.
+
+- **South (Red):**
+  - Starts small but grows strongly in April, overtakes East and June
+  - Shows a rising trend and become a dominant region in June.
+
+- **North (Yellow):**
+  - Fluctuates but sees a notable rise in May.
+  - Drop slightly in June.
+ 
+
+**Insight:**
+- The East region was the leading revenue contributor in Q1, especially January to March. However, its performance declined steady from April onward. In contrast, the South region showed strong growth in Q2, ultimately becoming the top revenue region by June.
+- The West region maintained stables revenue levels but never dominated the North rgion showed minor growth with a temporary peak in May, but lacked consistentupward mometem.  
+
+**Total Revenue by region and Product  
+
+- Smartphones and Keyboards dominates revenue, expecially in South and West.
+- East sell low volume accesories
+
+**Insight:**  
+Revenue concentration is high in few key products, particularly Smartphones and Keyboards. This concentration presents both opportunity and risk. Deversity product push in underperforming regions could de-risk revenue dependency.  
+
+
+**AVERAGE GROSS PROFIT BY REGION**
+- West shows the highest average gross profit per unit.
+- North and East trail in profitability.
+
+**Insight:**
+Despite similar sales volume, West region maximises profit, possibly due to better product mix or pricing power. Stakeholders should benchmark West's pricing model or customer segments to replicate high-margin strategies in other regions.  
+
+**GROSS PROFIT and REVENUE BY PRODUCT**  
+Top Products by Gross Profit:
+- Keyboard -
+- Smartphone -
+- Laptop -
+- Tablet
+
+| Product name | Revenue | Gross Profit |
+| --- | --- | --- |
+| Keyboard | 653K | 276K |
+| Smartphone | 557K | 245K |
+| Laptop | 520k |217K |
+| Tablet | 518K | 237K |
+
+**Insight:** 
+Products like Keyboards and Smartphone tablet not only lead in sales but also in profitability - suggesting efficient supply chains and strong customer demand.  Laptop and Monitors, while mid-tier in revenue, show dimishing gross profit and need cost structure or pricing review.  
+
+
+**STRATEGIC TAKEAWAYS FROR FINANCE AND OPERATIONS TEAMS**  
+
+- **Optimise Product Mix by Region**
+  - Reallocate high-margin product to underperforming regions.
+  - Use targeted campaigns to match region demand profiles (e.g., Keyboard campaings in north).
+ 
+- **Refine Cost and Margin Structure**
+  - Deep dive into Admin and Marketing costs per product line.
+  - Consider reducing low-msrgin SKUs or renegotiating supplier terms fot tablets and monitors.
+ 
+- **Boost Forecast Accuracy**
+  - MoM analysis suggests potential for predictive demand modeling using the first 6 months.
+  - Use Power BI's time intelligence to simulate Q3 and Q4 projections and set real-time KPI alerts
+ 
+- **Excel-Based Financial Forecasting**
+  - Export current dataset to Excel to build P&L and sensitivity models.
+  - Use variance analysis to simulate best-case vs worst-case Q4 outcomes based on YTD performance.
+ 
+
+# Link to Sales Overview Dasboard
+
+Using the link below will enable you to gain access to interact with the report and semantic model behind the success of this project end product.  
+
+[![View Report](https://img.shields.io/badge/View%20Power%20BI%20Report-Click%20Here-blue)](https://app.powerbi.com/view?r=eyJrIjoiMTYwZmYxZjEtMjA1Zi00ZDM4LWIzNGUtMDc3ZjFlY2FmNDkyIiwidCI6IjJhMzA1NzYxLWY5N2QtNDdlNC04ZjBmLWE2YzIwYzNmZWI3MyIsImMiOjh9)
+
+
+# Excel-Based Financial Forecasting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
