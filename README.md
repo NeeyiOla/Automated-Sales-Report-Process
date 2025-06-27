@@ -691,7 +691,7 @@ While the business generated strong revenue overall, a consistent MoM decline ac
 - The East region was the leading revenue contributor in Q1, especially January to March. However, its performance declined steady from April onward. In contrast, the South region showed strong growth in Q2, ultimately becoming the top revenue region by June.
 - The West region maintained stables revenue levels but never dominated the North rgion showed minor growth with a temporary peak in May, but lacked consistentupward mometem.  
 
-**Total Revenue by region and Product  
+**TOTAL REVENUE BY REGION AND PRODUCT**
 
 - Smartphones and Keyboards dominates revenue, expecially in South and West.
 - East sell low volume accesories
