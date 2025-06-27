@@ -635,7 +635,7 @@ Incorperated stakeholder feedback, Adjusted alerts, added new KPIs, improved vis
 
 ![Sales Report Dasboard](Asset/Images/Sales_Report_Dashboard.gif)
 
-**Headline KPIs**  
+**HEADLINE KPI's**  
 Total Revenue  
 - 3M
 - MoM Change: ▼ 8.8%
@@ -678,7 +678,7 @@ While the business generated strong revenue overall, a consistent MoM decline ac
   - Drop slightly in June.
  
 
-**Insight:**
+**Insight:**  
 - The East region was the leading revenue contributor in Q1, especially January to March. However, its performance declined steady from April onward. In contrast, the South region showed strong growth in Q2, ultimately becoming the top revenue region by June.
 - The West region maintained stables revenue levels but never dominated the North rgion showed minor growth with a temporary peak in May, but lacked consistentupward mometem.  
 
@@ -695,7 +695,7 @@ Revenue concentration is high in few key products, particularly Smartphones and 
 - West shows the highest average gross profit per unit.
 - North and East trail in profitability.
 
-**Insight:**
+**Insight:**  
 Despite similar sales volume, West region maximises profit, possibly due to better product mix or pricing power. Stakeholders should benchmark West's pricing model or customer segments to replicate high-margin strategies in other regions.  
 
 **GROSS PROFIT and REVENUE BY PRODUCT**  
@@ -712,7 +712,7 @@ Top Products by Gross Profit:
 | Laptop | 520k |217K |
 | Tablet | 518K | 237K |
 
-**Insight:** 
+**Insight:**  
 Products like Keyboards and Smartphone tablet not only lead in sales but also in profitability - suggesting efficient supply chains and strong customer demand.  Laptop and Monitors, while mid-tier in revenue, show dimishing gross profit and need cost structure or pricing review.  
 
 
