@@ -86,14 +86,14 @@ Weekly sync with the Sales Team, Finance Department, and C-Suite to identify rep
 - Weekly Excel files from Sales Team (OneDrive)
 - Hosted in SharePoint: /Shared Document/Weekly Sales Upload and /Historical_Sales
 
-### **DATASET**  
+#### **DATASET**  
 Each file includes:  
 - Date, Product, Region
 - Unit Sold, Unit Price, Revenue
 - Unit Cost, Admin Cost, Marketing Cost
 
 
-### **DATA MODEL STRUCTURE**
+#### **DATA MODEL STRUCTURE**
 - Fact Table: Weekly Sales
 - Dimension Tables: Date (Time Intelligence)
 - Calculated Columns: Total Cost, Gross Profit, Profit Margin, Cost per Unit
@@ -127,21 +127,21 @@ Each file includes:
 # Methodology 
 Agile developmenmt with bi-weekly sprints, stakeholder demos, and flow testing.  
 
-### Tool Used 
+## Tool Used 
 - Power Automate
 - Power BI Desktop & Service
 - Execl (for P&L and forecasting
 - SharePoint and OneDrive for Business
 - DAX & Power Query
 
-### Development 
+## Development 
 
 #### *Project Planning & and Requirement Gathering* 
 Collaborated with Stakeholders to define the reporting cadence, file structure, and KPI expectations.
 
 
 
-#### *Automation Workflow Using Power Automate, OneDrive and SharePoint*
+### *Automation Workflow Using Power Automate, OneDrive and SharePoint*
 
 - Sales team Uploads weekly Excel (more like every 7days sales) to: /GitHub/ Power Automate/Weekly Sale Data Upload (OneDrive for Business)
 - Power Automate detects the upload and:
@@ -154,17 +154,17 @@ Collaborated with Stakeholders to define the reporting cadence, file structure, 
 
 ![Dataflow Process and Report](Asset/Images/Dataflow_Process_and_Report.png)
 
-#### *Data Exploration & Profiling*
+### *Data Exploration & Profiling*
 Performed integrity checks and missing value analysis using Power Query. Identified outliers and ensured consistency. This was done by heading to the VIEW ribbon in power query which i then turn on column profile and quality in the VIEW tab, this allow me to check the integrity, missing value, error or outliers in the dataset.
 
-#### *ETL Process Using Power Query and Data Modeling* 
+### *ETL Process Using Power Query and Data Modeling* 
 - Used the Folder connector to combine Excel files
 - Cleaned and transformed fields: Dates, Costs, Revenue
 - Related fact and dimensiontables for robust analysis
 
 ![Data modelling image](Asset/Images/Data_modelling.png)
 
-#### *Measures Development Using DAX*
+### *Measures Development Using DAX*
 Created measures: 
 - Total Revenue, Total COGS, Total Cost
 - Gross Profit, Profit Margin %, Average Gross profit
@@ -201,6 +201,7 @@ Total Revenue = SUM('Sales'[Revenue])
 ```Dax
 Total Unit Sold = SUM('Sales'[Units Sold])
 ```
+
 
 
 **MONTH OVER MONTH DAX MEASURES**  
@@ -597,9 +598,9 @@ RETURN
 ```
 
 
-#### *Dashboard Design & Visualisation Requirements*
+### *Dashboard Design & Visualisation Requirements*
 
-**Visualisation Requirements**  
+**VISUALISATION REQUIREMENT**  
 
 - Created one Dashbaord page (Sale Overview Dashboard) that can consist of below functionalities;
   - KPI cards, Bar charts, Line trends for (regions monthly trend)
@@ -616,27 +617,17 @@ To ensure the Power BI report successfully met stakeholder expectations, an init
 
 ![Mokkup Design](Asset/Images/Mokkup_Design.png)
 
-**Visualisation Requirements**  
 
-- Created one Dashbaord page (Sale Overview Dashboard) that can consist of below functionalities;
-  - KPI cards, Bar charts, Line trends for (regions monthly trend)
-  - Drill-through from Product > Region > Unit Sold Monthly Trend
-  - Tooltip page that breakdown unit sold for each product.
-  - Profitability scorecard that show MoM change and indicator for revenue, COGS, Gross Profit and Total Cost.
-- Created a drill-through page that help end users to drill-through product unit sold by monthly trends accross each regions.
-- Incorporated at least one slicer of any slicer type
-
-
-#### *Publishing and Collaboration*
+### *Publishing and Collaboration*
 - Publish reports to Power BI Service
 - Shared with stakeholders via Power BI apps, and automated alerts.
 - Collaboration on Outlook email and Microsoft Team
 
-#### *Documentation & Version Control*
+### *Documentation & Version Control*
 Used GitHub for project files, Power BI versions, and flow documentation.  
 Markdown for README.
 
-#### *Review & Iteration*
+### *Review & Iteration*
 Incorperated stakeholder feedback, Adjusted alerts, added new KPIs, improved visuals and usability.
 
 # Detailed Insights and Recommendation.
