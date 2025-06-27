@@ -42,15 +42,15 @@ Automated Weekly Sales Workflow & Forecasting using POwer Automate, Power BI, an
 Business Intelligence Analyst & Workflow Automation Developer 
 
 # Project Overview
-This project automates the weekly sales data workflow, integrates historical data collection, and delivers real-time financial reporting and forecasting using Power Automate, Power BI, and Excel. 
+This project automates the weekly sales data workflow, integrates historical data collection, and delivers real-time financial reporting and forecasting using OneDrive and SharePoint for Busines, Power Automate, Power BI, and Excel. 
 
 # Problem Statement 
-Manual handling of weekly sales reports created inefficiencies, inconsistency in reporting, and delays in decision-making. The lack of automation and centralised data limited the ability to conduct trend analysis, forecasting, and performance tracking.
+Manual handling of weekly sales reports created inefficiencies, inconsistency in reporting, and delays in decision-making. The lack of automation and centralised data limited the ability to conduct trend analysis, forecasting, and performance tracking. There is also need for preservation of time consume by manual work process, data and information protection to be considered and lastly due to unroutine task that could cause prevention smooth work process by lack of real-time data insight and decision making.
 
 # Stakeholder Engagement 
 Weekly sync with the Sales Team, Finance Department, and C-Suite to identify reporting needs and automate manual tasks. Workshops were held to to define KPIs and success measures.
 
-#Target Stakeholders 
+# Target Stakeholders 
 - Sale Managers
 - Finacial Analyst
 - Operations Director
@@ -97,6 +97,31 @@ Each file includes:
 - Fact Table: Weekly Sales
 - Dimension Tables: Date (Time Intelligence)
 - Calculated Columns: Total Cost, Gross Profit, Profit Margin, Cost per Unit
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| Date | Date | Date of each transaction and this also serve as a unique identifier for each row   |
+| Product | Text | product name being sold |
+| Region | Text | Region location (geographical 4 cardinal point) of where sales occur |
+| Unit Sold | Whole Number | Quantity of product sold |
+| Unit Price | Number | The selling price of a single unit of a product before any cost is deducted |
+| Revenue | Number | The total income generated from selling products, calculated as: Revenue = Unit Price x Units Sold |
+| Unit Cost | Decimal Number | The cost to produceone unit of the product (Doesn't include admin or marketing costs.) |
+| Admin Cost | Decimal Number | Additional fixed or variable administrative overhead attributed to the sales transaction or product line. |
+| Marketing Cost | Decimal Number | Expenses incured for marketing activities directly related to the product or sales cycle. |
+
+
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| Date | Date/DateTime | Full calendar date (serve as the primary key of the date table). |
+| Year | Whole Number | 4-digit representation of the year. |
+| Calendar | Whole | Calendar quarter number of the year (Q1-Q4) |
+| Month Number | Whole Number | Numeric representation of the month (1-12) |
+| Month Name | Text | Full name of the month (for readable labels in visuals) |
+| Month Short | Text | Abbreviated Month name (useful for compact visuals). |
+| Weekdays | Text | Full name of the weekday (based on the Date column). |
+
 
 
 # Methodology 
