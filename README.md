@@ -99,6 +99,8 @@ Each file includes:
 - Dimension Tables: Date (Time Intelligence)
 - Calculated Columns: Total Cost, Gross Profit, Profit Margin, Cost per Unit
 
+**FACT TABLE**  
+
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | Date | Date | Date of each transaction and this also serve as a unique identifier for each row   |
@@ -111,7 +113,7 @@ Each file includes:
 | Admin Cost | Decimal Number | Additional fixed or variable administrative overhead attributed to the sales transaction or product line. |
 | Marketing Cost | Decimal Number | Expenses incured for marketing activities directly related to the product or sales cycle. |
 
-
+**DATE TABLE**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
