@@ -750,7 +750,7 @@ Using the link below will enable you to gain access to interact with the report 
 
 ![Excel Based Financial Forcasting](Asset/Images/July_Financial_forecast_ezgif.gif)
 
-**EXECUTIVE SUMMARY:**
+**EXECUTIVE SUMMARY:**  
 The July 2025 financial forecast model - powered by Excel and scenario-based logic - project a decline in total revenue across regions, based on extraploated patterns from January to June 2025. The forecasted Total Revenue of £430,841.98 suggests a downward shiftin demand or conversion performance across business.  
 
 
@@ -802,12 +802,12 @@ Compared to prior Month (notably May and June), July is forecasted to experience
 4. **Automate Report Refresh**
   - Use Power BI Desktop to configure:
     - Schedule Refresh
-    - Incremental Load (OPTIONAL FOR LARGE data)
+    - Incremental Load (optional for large data)
   - Publish to Power BI Service and configure refresh schedule (daily or weekly) based on when new sales data lands in SharePoint.
 
 
 
-**STRATEGIC TAKEWAY**
+**STRATEGIC TAKEWAY**  
 This scenario-driven forecast model empowers the business to react to financial shifts early. By combining Excel-based planning, DAX-powered KPIs, and Power Automate alerts, the July financial forecast closes the loop between prediction, performance, and stakeholder awareness.
 
 
