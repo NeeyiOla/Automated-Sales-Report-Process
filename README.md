@@ -1,4 +1,4 @@
-# Automated-Sales-Report-Process
+A# Automated-Sales-Report-Process
 
 ## Automated Weekly Sales Workflow & Forecasting using Power Automate, Power BI, and Excel 
 
@@ -742,7 +742,76 @@ Using the link below will enable you to gain access to interact with the report 
 [![View Report](https://img.shields.io/badge/View%20Power%20BI%20Report-Click%20Here-blue)](https://app.powerbi.com/view?r=eyJrIjoiMTYwZmYxZjEtMjA1Zi00ZDM4LWIzNGUtMDc3ZjFlY2FmNDkyIiwidCI6IjJhMzA1NzYxLWY5N2QtNDdlNC04ZjBmLWE2YzIwYzNmZWI3MyIsImMiOjh9)
 
 
-# Excel-Based Financial Forecasting
+# Excel-Based Financial Forecasting - July 2025
+### Insights and Recommendation
+
+
+![Excel Based Financial Forcasting](Asset/Images/July_Financial_Forecast_Image.png)
+
+![Excel Based Financial Forcasting](Asset/Images/July_Financial_forecast_ezgif.gif)
+
+**EXECUTIVE SUMMARY:**
+The July 2025 financial forecast model - powered by Excel and scenario-based logic - project a decline in total revenue across regions, based on extraploated patterns from January to June 2025. The forecasted Total Revenue of £430,841.98 suggests a downward shiftin demand or conversion performance across business.  
+
+
+**KEY FORECAST METRICS FOR JULY 2025**  
+| Metric | Value(£) |
+| --- | --- |
+| Total Revenue | 430,841.98 |
+| Gross Proft | 169,789.81 |
+| Operating Profit | 98,729.69 |
+
+
+**Revenue by Region:**
+| Region | Forecasted Revenue(£) |
+| --- | --- |
+| North | 72,071.83 |
+| East | 141,327.09 |
+| West | 92,717.30 |
+| South | 124,841.76 |  
+
+
+**Insight 1: Forecast Signals Potential Revenue Slowdown**  
+Compared to prior Month (notably May and June), July is forecasted to experience a decline in total revenue. Historical trends suggest this may be due to fewer sales transactions or declining unit prices. A review of COGS and total cost behaviour month-over-month will clarify operational efficiency.  
+
+**Insight 2: Regional Contribution in Uneven**  
+- **North Region emerges as the most underperforming region**, with projected revenue of just £72K, significantly below it peers, this underperformance warrants investigation into sales velocity, customer demand, or sales team engagement.
+- **West Region**, which historically showed downward revenue trend, is forecasted to increase - a promising sign if validated, but this contradiction with recent actuals should trigger a variance check to assess forecast accuracy.
+
+**Insight 3: KPI Movement (MoM Trends)**  
+- **COGS (Cost of Goods Sold):** Has gradually increased from Jan to June. July's estimate will neef verification to ensure mafgines are preserved.
+- **Total Operating Cost:** Showing an increase from from £1.7K in May to £1.8K in June - This upward trend may continue Unless actively managed.
+- Gross Margin & Operating Margin: Both remain stable (Base Case: 45% Groos, 42% operating) in July - which is positive if cost are controlled.
+
+
+**ACTIONABLE RECOMMENDATIONS:**  
+1. **Variance Detection Alarm in Power BI**
+  - Set up a Power BI card-based DAX alert to trigger when July's revenue > or = £430,841.98.
+  - Use **Power BI service** to notify the Sales or Strategy Team via Microsoft Teams when the threshold is reached.
+  - This enables real-times awereness and potential proactive intervention.
+
+2. **Add Region Slicer for Card KPIs**
+  - Introduce a Region slicer in your Power BI dashboard.
+  - Link slicer to card (e.g., Total Revenue, Gross Profit) so stakeholders can filter and compare regional performance.
+  - This adds diagnostic clarity and supports region-specific actions.
+
+3. **Improve Forecast Governance**  
+  - Highlight regions (e.g., West) where forecast contradicts history.
+  - Add a Forecast vs Actual comparison page for july and automate variance reporting.
+
+4. **Automate Report Refresh**
+  - Use Power BI Desktop to configure:
+    - Schedule Refresh
+    - Incremental Load (OPTIONAL FOR LARGE data)
+  - Publish to Power BI Service and configure refresh schedule (daily or weekly) based on when new sales data lands in SharePoint.
+
+
+
+**STRATEGIC TAKEWAY**
+This scenario-driven forecast model empowers the business to react to financial shifts early. By combining Excel-based planning, DAX-powered KPIs, and Power Automate alerts, the July financial forecast closes the loop between prediction, performance, and stakeholder awareness.
+
+
+
 
 
 
