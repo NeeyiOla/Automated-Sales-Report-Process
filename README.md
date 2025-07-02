@@ -1,4 +1,5 @@
-A# Automated-Sales-Report-Process
+
+# Automated-Sales-Report-Process
 
 ## Automated Weekly Sales Workflow & Forecasting using Power Automate, Power BI, and Excel 
 
