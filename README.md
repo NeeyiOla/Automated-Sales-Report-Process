@@ -758,6 +758,7 @@ The July 2025 financial forecast model - powered by Excel and scenario-based log
 
 
 **KEY FORECAST METRICS FOR JULY 2025**  
+
 | Metric | Value(£) |
 | --- | --- |
 | Total Revenue | 430,841.98 |
@@ -765,7 +766,8 @@ The July 2025 financial forecast model - powered by Excel and scenario-based log
 | Operating Profit | 98,729.69 |
 
 
-**Revenue by Region:**
+**Revenue by Region:**  
+
 | Region | Forecasted Revenue(£) |
 | --- | --- |
 | North | 72,071.83 |
